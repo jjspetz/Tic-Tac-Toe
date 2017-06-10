@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  background: #103C89;
+}
+button {
+  display: block;
+  padding: 0.5em;
+  width: 6em;
+  margin: 1em auto;
+}
+.container {
+  width: 60%;
+  max-width: 1250px;
+  margin: 1em auto;
+}
+.flex-item {
+  text-align: center;
+  display: flex;
+  min-width: 80px;
+  background: #1153A0;
+  margin: 0.25em;
+  flex: 1;
+  border-radius: 50%;
+  border: 5px double #F5F5F5;
+}
+.center {
+  color: white;
+  font-size: 55px;
+  flex: 1 1 auto;
+  align-self: center;
+}
+.flex-container {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  height: 26vh;
+  min-height: 100px;
+}
+#player {
+  display: inline-block;
+}
+#playermarker {
+  display: inline-block;
+  position: relative;
+  top: 0.1em;
+  width: 1em;
+  height: 1em;
+  background: #F7B900;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+#turn {
+  position: relative;
+  text-align: center;
+  font-size: 2.5em;
+  width: 46%;
+  margin: 0.5em auto;
+  background: white;
+  border: 1px solid black;
+}
+/* modal */
+#modal-button {
+  margin: 5px auto;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px;
+  width: 50px;
+  font-size: 24px;
+  background: #1153A0;
+}
+.modal-content p {
+  display: inline-block;
+  margin: 10px;
+}
+.modal-content {
+  font-size: 24px;
+}
+.modal-content input{
+  font-size: 24px;
+  height: 24px;
+}
+#modal-dialog {
+  color: #F5F5F5;
+  position: fixed;
+  left: calc(50% - 300px);
+  top: calc(50% - 110px);
+  z-index: 1;
+  background: #103C89;
+  border: 5px double #F5F5F5;
+  border-radius: 50px;
+  padding: 10px;
+}
+.modal-header {
+  text-align: center;
+}
+.modal-title {
+  font-size: 36px;
+}
+#win-exit {
+  float: right;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 17px;
+  text-align: center;
+}
+#win-modal {
+  text-align: center;
+  width: 20em;
+  height: 4em;
+  display: none;
+  position: fixed;
+  top: calc(50% - 2em - 15px);
+  left: calc(50% - 10em - 10px);
+  color: white;
+  border: 5px solid white;
+  z-index: 10;
+  padding: 20px;
+  background: #1153A0;
+}
+@media screen and (max-width: 700px) {
+  .container {width: 98%}
+  #turn {width: 70%}
+}
