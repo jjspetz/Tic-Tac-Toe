@@ -1,0 +1,22 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "This is a project done for freeCodeCamp. It is the 3rd project of the advanced front-end projects. This version fulfills the basic user stories but needs a better AI script and an improved mobile experience.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjspetz/Tic-Tac-Toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjspetz/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/jjspetz/Tic-Tac-Toe#readme",
+  "dependencies": {
+    "less": "^2.7.2"
+  }
+}
