@@ -192,10 +192,64 @@ function draw() {
 
     The code below handles the AI
  */
+ // AI Check
+ // loop through arrays
+ var AIcheck = function() {
+   // shorten variable name
+   var vA = victoryArray;
+   // row check
+   for (let i=1; i<9; i+=3) {
+     if (vA[i] == vA[i+1]) {
+       return i-1;
+     }
+     if (vA[i-1] == vA[i+1]) {
+       return i;
+     }
+     if (vA[i-1] == vA[i]) {
+       return i+1;
+     }
+   }
+   // column check
+   for (let i=0; i<3; i++) {
+     if (vA[i+3] == vA[i+6]) {
+       return i;
+     }
+     if (vA[i] == vA[i+6]) {
+       return i+3;
+     }
+     if (vA[i] == vA[i+3]) {
+       return i+6;
+     }
+   }
+
+   // diagonal checks
+   if (vA[4] == vA[8]) {
+     return 0;
+   }
+   if (vA[0] == vA[8]) {
+     return 4;
+   }
+   if (vA[0] == vA[4]) {
+       return 8;
+   }
+   if (vA[4] == vA[6]) {
+     return 2;
+   }
+   if (vA[2] == vA[6]) {
+     return 4;
+   }
+   if (vA[2] == vA[4]) {
+     return 6;
+   }
+
+   // if no checks return true
+   return false;
+ }
 
 function AIMove() {
    // gets random index for the positions left
    let arr = [];
+
    victoryArray.forEach(function(element) {
      if (/[0-9]/.test(element)) {
        arr.push(element);
@@ -206,8 +260,14 @@ function AIMove() {
       return draw();
    }
    console.log('arr: ' + arr);
-   var index = Math.floor(Math.random() * arr.length);
 
+   var index = AIcheck();
+   if (index) {
+     index = index;
+   } else {
+     index = Math.floor(Math.random() * arr.length);
+   }
+   console.log(index);
    var elem = arr[index] - 1;
    console.log('comp choice: ' + (elem + 1));
    console.log('at index: ' + index);
