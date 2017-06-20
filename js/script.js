@@ -194,52 +194,76 @@ function draw() {
  */
  // AI Check
  // loop through arrays
- var AIcheck = function() {
+ var AIcheck = function(arr) {
    // shorten variable name
    var vA = victoryArray;
    // row check
    for (let i=1; i<9; i+=3) {
      if (vA[i] == vA[i+1]) {
-       return i-1;
+       let pos = elementArray[i-1];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i-1;
      }
      if (vA[i-1] == vA[i+1]) {
-       return i;
+       let pos = elementArray[i];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i;
      }
      if (vA[i-1] == vA[i]) {
-       return i+1;
+       let pos = elementArray[i+1];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i+1;
      }
    }
    // column check
    for (let i=0; i<3; i++) {
      if (vA[i+3] == vA[i+6]) {
-       return i;
+       let pos = elementArray[i];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i;
      }
      if (vA[i] == vA[i+6]) {
-       return i+3;
+       let pos = elementArray[i+3];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i+3;
      }
      if (vA[i] == vA[i+3]) {
-       return i+6;
+       let pos = elementArray[i+6];
+       if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+        return i+6;
      }
    }
 
    // diagonal checks
    if (vA[4] == vA[8]) {
-     return 0;
+     let pos = elementArray[0];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+      return 0;
    }
    if (vA[0] == vA[8]) {
-     return 4;
+     let pos = elementArray[4];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+      return 4;
    }
    if (vA[0] == vA[4]) {
+     let pos = elementArray[8];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
        return 8;
    }
    if (vA[4] == vA[6]) {
-     return 2;
+     let pos = elementArray[2];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+      return 2;
    }
    if (vA[2] == vA[6]) {
-     return 4;
+     let pos = elementArray[4];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+      return 4;
    }
    if (vA[2] == vA[4]) {
-     return 6;
+     let pos = elementArray[6];
+     if (pos.style.background !== 'rgb(247, 185, 0)' && pos.style.background !== 'rgb(219, 193, 151)')
+      return 6;
    }
 
    // if no checks return true
@@ -248,7 +272,8 @@ function draw() {
 
 function AIMove() {
    // gets random index for the positions left
-   let arr = [];
+   var arr = [];
+   var elem
 
    victoryArray.forEach(function(element) {
      if (/[0-9]/.test(element)) {
@@ -261,16 +286,16 @@ function AIMove() {
    }
    console.log('arr: ' + arr);
 
-   var index = AIcheck();
+   var index = AIcheck(arr);
    if (index) {
-     index = index;
+     elem = index;
    } else {
      index = Math.floor(Math.random() * arr.length);
+     elem = arr[index] - 1;
    }
-   console.log(index);
-   var elem = arr[index] - 1;
-   console.log('comp choice: ' + (elem + 1));
-   console.log('at index: ' + index);
+
+   console.log('elem: ' + elem);
+   console.log('index: ' + index);
    victoryArray[elem] = p2_marker;
    console.log(victoryArray);
    flip(elementArray[elem]);
